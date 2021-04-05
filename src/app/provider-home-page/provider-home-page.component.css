@@ -1,0 +1,10 @@
+.bookingcard:hover{
+    box-shadow: -2px 1px 11px 9px rgba(183,154,154,0.75);
+
+}
+body {
+    background: #e8cbc0;
+    background: -webkit-linear-gradient(to right, #e8cbc0, #636fa4);
+    background: linear-gradient(to right, #e8cbc0, #636fa4);
+    min-height: 100vh;
+}

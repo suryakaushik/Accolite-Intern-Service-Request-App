@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div>
+        <a class="navbar-brand mr-auto" href="#"><img src="assets/images/logo.png" height="50" width="50"></a>&nbsp;
+        <a class="navbar-brand" href="#" style="font-size: 25px;">Service Request</a>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div *ngIf="isLoggedIn()" class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+            <li id="1" class="nav-item active" (click)="buttonClick($event)">
+                <a *ngIf="isCustomer()" class="nav-link" routerLink="userHomePage">Home <span
+                        class="sr-only">(current)</span></a>
+
+                <a *ngIf="isProvider()" class="nav-link" routerLink="providerHomePage">Home <span
+                        class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" id="2" (click)="buttonClick($event)">
+                <a *ngIf="isCustomer()" class="nav-link" routerLink="customerBookings">My Bookings</a>
+
+                <a *ngIf="isProvider()" class="nav-link" routerLink="viewServices">My Services</a>
+            </li>
+            <li class="nav-item" id="5" *ngIf="isProvider()" (click)="buttonClick($event)">
+                <a class="nav-link" routerLink="dashboard">Dashboard</a>
+            </li>
+            <li class="nav-item" id="3" (click)="buttonClick($event)">
+                <a class="nav-link" routerLink="profile">Profile</a>
+            </li>
+            <li class="nav-item" id="4" (click)="buttonClick($event)">
+                <a class="nav-link " (click)="logout()" routerLink="/">Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>

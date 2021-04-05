@@ -1,0 +1,73 @@
+<div class="container align-self-center" style="margin-top: 30px;">
+    <div class="card">
+        <h4 class="card-header">Register</h4>
+        <div class="card-body">
+            <div class="row">
+
+                <div class="col-xs-6">
+                    <button class="btn btn-primary">Register as a Servic Provider</button>
+                </div>
+                <div class="col-xs-6">
+                    <button class="btn btn-link" routerLink="/registerUser">Register as User</button>
+                </div>
+
+            </div>
+
+            <form [formGroup]="form" (ngSubmit)="register()">
+                <div class="form-group">
+                    <div class="alert alert-danger" *ngIf="form.errors">
+                        <div *ngIf="form.errors.alreadyExists">User already exists</div>
+                    </div>
+                    <label for="name">Name</label>
+                    <input type="text" formControlName="name" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="form.get('name').touched && form.get('name').invalid">
+                        <div *ngIf="form.get('name').errors.required">Name is required</div>
+                        <div *ngIf="form.get('name').errors.pattern">Name should contain letters only</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="text" formControlName="email" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="form.get('email').touched && form.get('email').invalid">
+                        <div *ngIf="form.get('email').errors.required">email is required</div>
+                        <div *ngIf="form.get('email').errors.email">Wrong email format</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="location">location</label>
+                    <input type="text" formControlName="location" class="form-control" />
+                    <div class="alert alert-danger"
+                        *ngIf="form.get('location').touched && form.get('location').invalid">
+                        <div *ngIf="form.get('location').errors.required">location is required</div>
+                        <div *ngIf="form.get('location').errors.pattern">location should contain letters only</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phoneno">Phone No</label>
+                    <input type="text" formControlName="phoneno" class="form-control" />
+                    <div class="alert alert-danger" *ngIf="form.get('phoneno').touched && form.get('phoneno').invalid">
+                        <div *ngIf="form.get('phoneno').errors.required">phoneNo is required</div>
+                        <div *ngIf="form.get('phoneno').errors.pattern">phoneNo should contain digits only</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" />
+                    <div *ngIf="form.get('password').touched && form.get('password').invalid"
+                        class="alert alert-danger">
+                        <div *ngIf="form.get('password').errors.required"> password is required</div>
+                        <div *ngIf="form.get('password').errors.minlength"> password must be 6 characters</div>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+
+                        Register
+                    </button>
+                    <a class="btn btn-link" routerLink="/">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css"
+        href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap-extended.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/fonts/simple-line-icons/style.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/colors.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://pixinvent.com/stack-responsive-bootstrap-4-admin-template/app-assets/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="grey-bg container-fluid">
+        <section id="minimal-statistics">
+            <div class="row">
+                <div class="col-12 mt-3 mb-1">
+                    <h4 class="text-uppercase">Provider Statistics</h4>
+                    <!-- <p>Statistics on minimal cards.</p> -->
+                </div>
+            </div>
+            <div class="text-center align-self-center">
+                <div class="row">
+                    <div class="col-xl-4 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-pencil primary font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3>{{details.averageRating.toFixed(0)}}</h3>
+                                            <span>Avg Rating</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="align-self-center">
+                                            <i class="icon-graph success font-large-2 float-left"></i>
+                                        </div>
+                                        <div class="media-body text-right">
+                                            <h3>{{details.totalRevenue}}</h3>
+                                            <span>Total Revenue</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-sm-6 col-12">
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <div class="media d-flex">
+                                        <div class="media-body text-left">
+                                            <h3 class="danger">{{details.totalBookings}}</h3>
+                                            <span>Total Bookings</span>
+                                        </div>
+                                        <div class="align-self-center">
+                                            <i class="icon-rocket danger font-large-2 float-right"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <div #screen class="container" cols="2" rowHeight="200px" style="margin-top: 20px;">
+
+        <div class="row align-items-center text-center">
+
+            <div class="col-sm-6">
+                <!-- <h2>CHART C1</h2> -->
+                <div id="chartContainer0" style="height: 370px; width: 100%;"></div>
+                <!-- <p>Describe</p> -->
+            </div>
+            <!-- <div class="col-sm-2"></div> -->
+            <div class="col-sm-6">
+                <!-- <h2>CHART C2</h2> -->
+                <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                <!-- <p>Describe</p> -->
+            </div>
+        </div>
+        <div style="margin-top: 30px;" class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6 align-items-center text-center" style="margin-bottom: 20px;">
+                <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+
+
+    <div id="download">
+        <img #canvas>
+        <a #downloadLink></a>
+    </div>
+</body>

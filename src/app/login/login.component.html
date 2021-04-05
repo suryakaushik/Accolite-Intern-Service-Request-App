@@ -1,0 +1,74 @@
+<body style="background-color: #dbdbdbec;">
+    <div style="width:100% ;height: 100%;background-size: cover;background-size: 100%;">
+        <div class="container align-self-center">
+
+            <div class="align self-center text-center">
+                <h1 class="logo-badge text-whitesmoke"> <img src="../../assets/images/logo_transparent.png" width="200">
+                </h1>
+            </div>
+            <div class="card col-sm-6 offset-sm-3">
+
+                <h4 class="card-header bg-secondary">Login</h4>
+                <div class="card-body">
+
+                    <form [formGroup]="form" (ngSubmit)="login()">
+                        <div class="alert alert-danger" *ngIf="form.errors">
+                            <div *ngIf="form.errors.invalidLogin">Invalid Login credentials!!</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="text" formControlName="email" class="form-control" />
+                            <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+                                <div *ngIf="email.errors.required"> Email is required</div>
+                                <div *ngIf="email.errors.minlength"> Email must be
+                                    {{email.errors.minlength.requiredLength}}
+                                    characters long!!</div>
+                                <div *ngIf="email.errors.email">Wrong Format</div>
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" formControlName="password" class="form-control" />
+                            <div *ngIf="form.get('password').touched && form.get('password').invalid"
+                                class="alert alert-danger">
+                                <div *ngIf="form.get('password').errors.required"> Password is required!!</div>
+                                <div *ngIf="form.get('password').errors.minlength"> Password must be 6 characters!!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-auto"> <label for="userType">User Type:</label></div>
+                            <div>
+                                <input id="customer" default type="radio" value="customer" name="userType"
+                                    formControlName="userType">
+                                <label for="customer">&nbsp;Customer</label>
+                            </div>
+                            <div class="col-sm-auto">
+                                <input id="provider" type="radio" value="provider" name="userType"
+                                    formControlName="userType">
+                                <label for="provider">&nbsp;Service Provider</label>
+                            </div>
+                            <div *ngIf="form.get('userType').touched && form.get('userType').invalid"
+                                class="alert alert-danger">
+                                <div *ngIf="form.get('userType').errors.required">User Type is required!!</div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary ">
+
+                                Login
+                            </button>
+                            <a class="btn btn-link " routerLink="registerUser">Register</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="background-color: #dbdbdbec;">
+        <br>
+        <br>
+        <br>
+    </div>
+</body>

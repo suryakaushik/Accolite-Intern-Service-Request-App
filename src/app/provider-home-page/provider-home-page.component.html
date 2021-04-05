@@ -1,0 +1,61 @@
+<body>
+    <div class="container py-5">
+        <div class="row text-center text-white">
+            <div class="col-lg-8 mx-auto">
+                <h1 class="display-4">Your Requests</h1>
+                <p class="lead mb-0">Click on a service to update the status</p>
+            </div>
+        </div>
+    </div>
+    <div style="margin-right: 20%;margin-left: 20%;">
+        <div style="margin-left: 87%;" class="dropdown show">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{selectedStatus}}
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a *ngFor="let status of statusArr" class="dropdown-item"
+                    (click)="filterBookings(status)">{{status}}</a>
+            </div>
+        </div>
+
+
+        <div *ngFor="let booking of bookings" style="margin-top: 20px;" class="bookingcard"
+            (click)="openBooking(booking)">
+
+            <div class=" card">
+                <div style="display: flex;justify-content: space-between;align-items: center;background-color: #dee6db;"
+                    class="card-header">
+
+                    <div style="font-size: 20px;font-weight: bold;">{{booking.serviceName}}</div>
+                    <div style="border: 1px solid black; padding: 5px; border-radius: 20px;">
+                        {{booking.bookingStatus}}
+                    </div>
+
+
+                </div>
+                <div class="card-body">
+                    <div class="row" style="display: flex;align-items: center;">
+                        <div class="col-sm-10">
+                            <h5 class="card-text "><i
+                                    class="fas fa-user-alt"></i><label>&nbsp;&nbsp;{{booking.customerName}}</label>
+                            </h5>
+                            <h6 class="card-text"><i
+                                    class="fas fa-calendar-day"></i><label>&nbsp;&nbsp;{{booking.bookingDate}}</label>
+                            </h6>
+                        </div>
+                        <div class="col-sm-2">
+                            <p style="font-size: 30px;font-weight:bold" class="card-text"><i
+                                    class="fas fa-rupee-sign"></i><label>&nbsp;{{booking.bookingCost}}</label>
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>

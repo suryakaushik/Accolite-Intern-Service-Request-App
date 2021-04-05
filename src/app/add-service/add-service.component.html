@@ -1,0 +1,60 @@
+<body style="padding: 5%;">
+    <div style="margin-left: 20%; margin-right: 20%">
+        <div class="card">
+            <h4 class="card-header" style="background-color: #dee6db;">Add Service</h4>
+            <div class="card-body">
+
+                <form [formGroup]="form" (ngSubmit)="addService()">
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="service">Service:</label>
+                            <select formControlName="service" class="form-control" (change)="changeService($event)">
+                                <option disabled>Select Service</option>
+                                <option *ngFor="let service of allServices">{{service.serviceName}}</option>
+                                <option>Other</option>
+                            </select>
+                            <div *ngIf="f.service.touched && f.service.invalid" class="alert alert-danger">
+                                <div *ngIf="f.service.errors.required">Name is required.</div>
+                            </div>
+                        </div>
+                        <div *ngIf="displayButton" class="form-group col-6">
+                            <label for="newService">New Service</label>
+                            <input type="text" formControlName="newService" class="form-control" />
+                            <button style="margin-top: 3px;" class="btn btn-primary" (click)="addNewService()">Add
+                                Service</button>
+                            <p style="color: red;font-weight: bold;">* Add the new service and select it from dropdown
+                            </p>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="price">Price</label>
+                        <input type="number" formControlName="price" class="form-control" />
+                        <div *ngIf="f.price.touched && f.price.invalid" class="alert alert-danger">
+                            <div *ngIf="f.price.errors.required"> price is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="discount">Discount</label>
+                        <input type="number" formControlName="discount" class="form-control" />
+                        <div *ngIf="f.discount.touched && f.discount.invalid" class="alert alert-danger">
+                            <div *ngIf="f.discount.errors.required"> discount is required</div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="desc">Description</label>
+                        <input type="textarea" formControlName="desc" class="form-control" />
+                        <div *ngIf="f.desc.touched && f.desc.invalid" class="alert alert-danger">
+                            <div *ngIf="f.desc.errors.required"> description is required</div>
+                        </div>
+
+                    </div>
+
+                    <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
