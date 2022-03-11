@@ -1,0 +1,106 @@
+average rating (for provider)
+total revenue
+total customers
+
+{
+    customers vs services (no. of customers for every service) --- bar graph
+    bookings vs services --- bar graph
+    
+    revenue vs service --- pie chart
+}
+
+{
+    avg_rating:
+}
+
+
+-------------------------------------------------------------------------------------
+
+postman collection
+https://www.getpostman.com/collections/7d64570e504fe31d091c
+
+sonarqube for testing
+https://stackoverflow.com/questions/59902276/how-to-setup-sonarqube-for-angular-7-project
+
+run usable version
+ng serve --proxy-config proxy.config.json
+
+give dummy data to db........
+
+create database service-request-app
+use service-request-app
+select database();
+
+update project and build using goals: clean install
+run as spring boot in eclipse and start mysql server
+eclipse settings--->   install spring boot suite and tools,
+			java se 15(jvm) and jre 15,add external jar in build path(servlet-api.jar for tomcatv8.5) ,
+			add server in servers folder(use server at the time of installation.[note: don't use workspace server] ,set path of apache tomcat folder,in server.xml of tomcat in servers folder change port number to 9000(8080->9000)),
+			
+
+write insert queries
+go to localhost:4200/ --> working app (in front end, proxy.config.json, modify from 8080 to 9002)
+go to localhost:9000/  --> to see tomcat webpage (in server.xml, we modify 8080 to 9000)
+go to localhost:9002/ --> spring boot runs here (in application.properties,we write server.port=9002)
+
+
+
+
+
+
+
+
+--------------------
+
+
+
+{
+    "averageRating": 0.0,
+    "totalRevenue": 2400,
+    "totalBookings": 8,
+    "providerServiceCustomers": [
+        {
+            "serviceName": "car-wash",
+            "numberOfCustomer": 3
+        },
+        {
+            "serviceName": "painting",
+            "numberOfCustomer": 2
+        },
+        {
+            "serviceName": "repairing",
+            "numberOfCustomer": 0
+        }
+    ],
+    "providerServiceBookings": [
+        {
+            "serviceName": "car-wash",
+            "numberOfBookings": 4
+        },
+        {
+            "serviceName": "painting",
+            "numberOfBookings": 4
+        },
+        {
+            "serviceName": "repairing",
+            "numberOfBookings": 0
+        }
+    ],
+    "providerServiceRevenue": [
+        {
+            "serviceName": "car-wash",
+            "serviceRevenue": 1200
+        },
+        {
+            "serviceName": "painting",
+            "serviceRevenue": 1200
+        },
+        {
+            "serviceName": "repairing",
+            "serviceRevenue": 0
+        }
+    ]
+}
+[3:22 PM, 3/9/2021] Himanshu Jain Acc: use this for provider dashboard
+[3:23 PM, 3/9/2021] Himanshu Jain Acc: providerServiceCustomers,  providerServiceBookings should be bargraph
+[3:23 PM, 3/9/2021] Himanshu Jain Acc: providerServiceRevenue -> pie chart
